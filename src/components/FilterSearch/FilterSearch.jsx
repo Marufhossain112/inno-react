@@ -2,7 +2,7 @@ import React from "react";
 const FilterSearch = () => {
   return (
     <div>
-      <div className="flex items-baseline justify-between max-w-5xl mx-auto">
+      <div className="flex flex-wrap items-baseline justify-center lg:justify-between max-w-5xl mx-auto gap-3">
         {/* price filter */}
         <div className="flex flex-wrap items-center justify-center gap-3 mt-5">
           <span cl>Price : </span>
