@@ -9,7 +9,10 @@ export const AuthProvider = ({ children }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [cart, setCart] = useState([]);
     const isToken = localStorage.getItem('token');
+
+    // login
     const login = async (username, password) => {
         try {
             setLoading(true);
@@ -38,7 +41,7 @@ export const AuthProvider = ({ children }) => {
             setLoading(false);
         }
     };
-
+    // logout
     const logout = () => {
         setLoading(true);
         localStorage.removeItem('token');
@@ -46,9 +49,13 @@ export const AuthProvider = ({ children }) => {
         toast.success("Logout successful");
         setLoading(false);
     };
+    // add to cart
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+    };
 
     return (
-        <AuthContext.Provider value={{ token, loading, login, logout, isToken, setLoading, searchQuery, setSearchQuery, minPrice, setMinPrice, maxPrice, setMaxPrice }}>
+        <AuthContext.Provider value={{ token, loading, login, logout, isToken, setLoading, searchQuery, setSearchQuery, minPrice, setMinPrice, maxPrice, setMaxPrice, addToCart, cart }}>
             {children}
         </AuthContext.Provider>
     );
@@ -61,3 +68,4 @@ export const useAuth = () => {
     }
     return context;
 };
+

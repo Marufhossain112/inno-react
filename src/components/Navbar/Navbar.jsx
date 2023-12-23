@@ -1,9 +1,8 @@
 import React from "react";
-import toast from "react-hot-toast";
 import { IoCartOutline } from "react-icons/io5";
 import { useAuth } from "../../contexts/AuthContext/AuthContext";
 const Navbar = () => {
-  const { login, logout, loading, isToken } = useAuth();
+  const { login, logout, loading, isToken, cart } = useAuth();
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -11,46 +10,6 @@ const Navbar = () => {
       </div>
     );
   }
-  // const isToken = localStorage.getItem("token");
-  // // console.log(isToken);
-  // const loginUrl = "https://dummyjson.com/auth/login";
-  // // Function to handle the login process
-  // const login = async () => {
-  //   try {
-  //     const response = await fetch(loginUrl, {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({
-  //         username: "kminchelle",
-  //         password: "0lelplR",
-  //         // expiresInMins: 60, // optional
-  //       }),
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error("Login failed");
-  //     }
-
-  //     const data = await response.json();
-  //     localStorage.setItem("token", data.token);
-  //     toast.success("Login successful");
-
-  //     // console.log(data);
-  //   } catch (error) {
-  //     console.error("Error during login:", error.message);
-  //   }
-  // };
-  // const logout = async () => {
-  //   try {
-  //     localStorage.removeItem("token");
-  //     toast.success("Logout successful");
-  //   } catch (error) {
-  //     console.error("Error during logout:", error.message);
-  //   }
-  // };
-
-  // Call the login function
-  // login();
 
   return (
     <div className="container mx-auto">
@@ -103,7 +62,9 @@ const Navbar = () => {
             </button>
           )}
           <div className="indicator">
-            <span className="indicator-item badge badge-secondary">0</span>
+            <span className="indicator-item badge badge-secondary">
+              {cart?.length}
+            </span>
             <IoCartOutline className="text-2xl" />
           </div>
         </div>
