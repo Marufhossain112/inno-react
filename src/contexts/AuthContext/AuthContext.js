@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 // AuthContext.js
 import React, { createContext, useContext, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -43,11 +44,10 @@ export const AuthProvider = ({ children }) => {
     };
     // logout
     const logout = () => {
-        setLoading(true);
         localStorage.removeItem('token');
         setToken(null);
+        location.reload();
         toast.success("Logout successful");
-        setLoading(false);
     };
     // add to cart
     const addToCart = (product) => {
