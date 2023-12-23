@@ -3,8 +3,10 @@ import React, { createContext, useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const AuthContext = createContext();
-
 export const AuthProvider = ({ children }) => {
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(Number.MAX_SAFE_INTEGER);
+    const [searchQuery, setSearchQuery] = useState("");
     const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(false);
     const isToken = localStorage.getItem('token');
@@ -23,7 +25,6 @@ export const AuthProvider = ({ children }) => {
             if (!response.ok) {
                 toast.error("Login failed");
                 throw new Error('Login failed');
-
             }
 
             const data = await response.json();
@@ -47,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ token, loading, login, logout, isToken }}>
+        <AuthContext.Provider value={{ token, loading, login, logout, isToken, setLoading, searchQuery, setSearchQuery, minPrice, setMinPrice, maxPrice, setMaxPrice }}>
             {children}
         </AuthContext.Provider>
     );
