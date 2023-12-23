@@ -3,10 +3,12 @@ import ProductCard from "../ProductCard/ProductCard";
 
 const Products = () => {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-5 py-10">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+    <div>
+      <div className="flex flex-wrap items-center justify-center gap-5 pt-4 pb-10">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
     </div>
   );
 };

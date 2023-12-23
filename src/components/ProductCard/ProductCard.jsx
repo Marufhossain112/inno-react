@@ -19,6 +19,7 @@ const ProductCard = () => {
           <div className="badge badge-outline">Fashion</div>
           <div className="badge badge-outline">Products</div>
         </div>
+        <div className="mx-auto text-center btn btn-outline mt-2">Add to Cart</div>
       </div>
     </div>
   );

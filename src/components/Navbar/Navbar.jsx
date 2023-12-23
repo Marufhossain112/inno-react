@@ -1,5 +1,5 @@
 import React from "react";
-
+import { IoCartOutline } from "react-icons/io5";
 const Navbar = () => {
   return (
     <div className="container mx-auto">
@@ -31,14 +31,19 @@ const Navbar = () => {
           </div>
           <a className="btn btn-ghost text-xl">Inno React</a>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             {/* items would be here */}
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn btn-outline  mr-2">Sign in</a>
-          <a className="btn btn-outline btn-accent">Sign up</a>
+        <div className="navbar-end ">
+          <a className="btn btn-outline  ">Sign in</a>
+          <a className="btn btn-outline btn-accent mx-2">Sign up</a>
+          <div className="indicator">
+            <span className="indicator-item badge badge-secondary">0</span>
+            <IoCartOutline className="text-2xl" />
+          </div>
         </div>
       </div>
     </div>
